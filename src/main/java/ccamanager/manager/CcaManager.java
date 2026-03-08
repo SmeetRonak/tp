@@ -25,6 +25,11 @@ public class CcaManager {
         return ccaList;
     }
 
+    /**
+     * Delete a CCA from the CCA list
+     * @param ccaName Name of the CCA
+     * @throws CcaNotFoundException Exception if invalid CCA name is given
+     */
     public void deleteCca(String ccaName) throws CcaNotFoundException {
 
         for (int i = 0; i < ccaList.size(); i++) {

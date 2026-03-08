@@ -45,6 +45,9 @@ public class Parser {
 
     String getCcaName(String input) {
         String[] parts = input.split(" ", 2);
+        if (parts.length < 2) {
+            return "";
+        }
         return parts[1];
     }
 
