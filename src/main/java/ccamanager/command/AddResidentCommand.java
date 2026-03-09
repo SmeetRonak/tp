@@ -10,17 +10,15 @@ import ccamanager.ui.Ui;
 public class AddResidentCommand extends Command{
     private String residentName;
     private String matricNumber;
-    private String ccaName;
 
-    public AddResidentCommand(String residentName,String matricNumber,String ccaName){
+    public AddResidentCommand(String residentName,String matricNumber){
         this.residentName=residentName;
         this.matricNumber=matricNumber;
-        this.ccaName=ccaName;
     }
 
     public void execute(CcaManager ccaManager, ResidentManager residentManager, Ui ui) {
-        ResidentManager.addResident(residentName,matricNumber,ccaName);
-        ui.showMessage("CCA added: " + residentName +" "+ matricNumber+ " "+ccaName);
+        ResidentManager.addResident(residentName,matricNumber);
+        ui.showMessage("CCA added: " + residentName +" "+ matricNumber);
     }
 
 

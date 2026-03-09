@@ -14,8 +14,8 @@ public class ResidentManager {
         residents = new ArrayList<>();
     }
 
-    public static void addResident(String residentName, String matricNumber, String ccaName) {
-        Resident resident  = new Resident(residentName,matricNumber,ccaName);
+    public static void addResident(String residentName, String matricNumber) {
+        Resident resident  = new Resident(residentName,matricNumber);
         residents.add(resident);
     }
 

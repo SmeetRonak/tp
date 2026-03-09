@@ -1,27 +1,24 @@
 package ccamanager.model;
 
+import java.util.ArrayList;
+
 /**
  * Represents a hall resident.
  * Plain data model — fields only, no business logic.
- * Fields: name (String), ccaName (String), points (int).
- * Add new fields here if needed (e.g. room number); logic goes in ResidentManager.
  */
 public class Resident {
 
     private String name;
     private String matricNumber;
-    private String ccaName;
-    private int points;
+    private ArrayList<Cca> CcaRegisteredIn = new ArrayList<Cca>();
+    private ArrayList<Integer> points = new ArrayList<Integer>();
 
     /**
      * @param name the resident's full name, e.g. "John Tan"
      */
-    public Resident(String name,String matricNumber,String ccaName) {
+    public Resident(String name,String matricNumber) {
         this.name = name;
         this.matricNumber=matricNumber;
-        this.ccaName = ccaName;
-
-        this.points = 0;
     }
 
     /**
@@ -38,39 +35,22 @@ public class Resident {
         this.name = name;
     }
 
-    /**
-     * @return the CCA name this resident is assigned to
-     */
-    public String getCcaName() {
-        return ccaName;
+    public void addCcaToResident(Cca cca) {
+        CcaRegisteredIn.add(cca);
+        points.add(0);
     }
 
-    /**
-     * @param ccaName name of the CCA to assign this resident to
-     */
-    public void setCcaName(String ccaName) {
-        this.ccaName = ccaName;
+    public void addCcaToResident(Cca cca, int pointsEarned) {
+        CcaRegisteredIn.add(cca);
+        points.add(pointsEarned);
     }
 
-    /**
-     * @return participation points
-     */
-    public int getPoints() {
-        return points;
+    public String getMatricNumber() {
+        return matricNumber;
     }
 
-    /**
-     * @param points points to assign; call via ResidentManager, not directly from commands
-     */
-    public void setPoints(int points) {
-        this.points = points;
-    }
-
-    /**
-     * @return formatted string: "name | CCA: ccaName | Points: points"
-     */
     @Override
     public String toString() {
-        return name + " | CCA: " + ccaName + " | Points: " + points;
+        return name + " | " + matricNumber;
     }
 }

@@ -2,6 +2,7 @@ package ccamanager.parser;
 
 import ccamanager.command.AddCcaCommand;
 import ccamanager.command.AddResidentCommand;
+import ccamanager.command.AddResidentToCcaCommand;
 import ccamanager.command.Command;
 import ccamanager.command.DeleteCcaCommand;
 import ccamanager.command.ExitCommand;
@@ -45,7 +46,9 @@ public class Parser {
         case "view-resident":
             return new ViewResidentCommand();
         case "add-resident":
-            return new AddResidentCommand(parts[1],parts[2],parts[3]);
+            return new AddResidentCommand(parts[1],parts[2]);
+        case "add-resident-to-cca":
+            return new AddResidentToCcaCommand(parts[1],parts[2],parts[3]);
         default:
             return new UnknownCommand();
         }
