@@ -19,15 +19,15 @@ public class CcaManager {
      * Creates and adds the CCA to CCAList
      * @param ccaName Name of the CCA
      */
-public void addCCA(String ccaName) throws DuplicateCcaException {
-    boolean isDuplicate = ccaList.stream()
-            .anyMatch(x -> x.getName().equalsIgnoreCase(ccaName));
-    if (isDuplicate) {
-        throw new DuplicateCcaException("CCA " + ccaName + " already exists.");
+    public void addCCA(String ccaName) throws DuplicateCcaException {
+        boolean isDuplicate = ccaList.stream()
+                .anyMatch(x -> x.getName().equalsIgnoreCase(ccaName));
+        if (isDuplicate) {
+            throw new DuplicateCcaException("CCA " + ccaName + " already exists.");
+        }
+        ccaList.add(new Cca(ccaName));
+        logger.log(Level.INFO, "Successfully added CCA: {0}", ccaName);
     }
-    ccaList.add(new Cca(ccaName));
-    logger.log(Level.INFO, "Successfully added CCA: {0}", ccaName);
-}
 
     /**
      * Return the list of all the CCAs
