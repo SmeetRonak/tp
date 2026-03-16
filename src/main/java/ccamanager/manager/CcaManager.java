@@ -5,7 +5,10 @@ import ccamanager.model.Cca;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import ccamanager.exceptions.DuplicateCcaException;
+
 import java.util.ArrayList;
+
 
 public class CcaManager {
     private static final Logger logger = Logger.getLogger(CcaManager.class.getName());
@@ -16,9 +19,13 @@ public class CcaManager {
      * Creates and adds the CCA to CCAList
      * @param ccaName Name of the CCA
      */
-    public void addCCA(String ccaName) {
-        Cca cca = new Cca(ccaName);
-        ccaList.add(cca);
+    public void addCCA(String ccaName) throws DuplicateCcaException {
+        boolean isDuplicate = ccaList.stream()
+                .anyMatch(x -> x.getName().equalsIgnoreCase(ccaName));
+        if (isDuplicate) {
+            throw new DuplicateCcaException("CCA " + ccaName + " already exists.");
+        }
+        ccaList.add(new Cca(ccaName));
         logger.log(Level.INFO, "Successfully added CCA: {0}", ccaName);
     }
 
