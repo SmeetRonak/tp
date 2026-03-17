@@ -1,9 +1,6 @@
-Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
-
-What is your name?
-Hello James Gosling
+There are no residents currently. Please add residents using add-resident command
+Here is the complete list of all the residents :
+Mark | A1234567B
+Here is the complete list of all the residents :
+Mark | A1234567B
+John | A7654321C
