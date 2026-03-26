@@ -58,7 +58,7 @@ public class Cca {
     }
 
     /**
-     *@param level the level of the CCA
+     * @param level the level of the CCA
      */
     public void setLevel(CcaLevel level){
         assert level != null : "CCA level should not be null";
