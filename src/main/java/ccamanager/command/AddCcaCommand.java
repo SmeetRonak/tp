@@ -1,6 +1,7 @@
 package ccamanager.command;
 
 import ccamanager.enumerations.CcaLevel;
+import ccamanager.exceptions.InvalidCcaLevelException;
 import ccamanager.manager.CcaManager;
 import ccamanager.manager.ResidentManager;
 import ccamanager.ui.Ui;
@@ -31,14 +32,10 @@ public class AddCcaCommand extends Command {
 
     @Override
     public void execute(CcaManager ccaManager, ResidentManager residentManager, Ui ui) {
-        if(ccaLevel == CcaLevel.UNKNOWN){
-            ui.showError("Could not add CCA: Invalid level provided.");
-            return;
-        }
         try {
             ccaManager.addCCA(ccaName, ccaLevel);
             ui.showMessage("CCA added: " + ccaName + "(" + ccaLevel + ")");
-        } catch (DuplicateCcaException e) {
+        } catch (DuplicateCcaException | InvalidCcaLevelException e) {
             ui.showError(e.getMessage());
         }
     }
