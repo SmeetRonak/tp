@@ -1,5 +1,6 @@
 package ccamanager.manager;
 
+import ccamanager.exceptions.DuplicateEventException;
 import ccamanager.exceptions.DuplicateResidentException;
 import ccamanager.model.Cca;
 import ccamanager.model.Event;
@@ -19,12 +20,12 @@ public class EventManager {
     }
 
 
-    public void addEvent(String eventName, Cca cca, String eventDate) throws DuplicateResidentException {
+    public void addEvent(String eventName, Cca cca, String eventDate) throws DuplicateEventException {
         boolean isDuplicate = events.stream()
                 .anyMatch(x -> x.getEventName().equalsIgnoreCase(eventName));
         if (isDuplicate) {
             logger.log(Level.WARNING,"Resident with the same matric number " + eventName + " already exists.");
-            throw new DuplicateResidentException("Resident with matric number " + eventName + " already exists.");
+            throw new DuplicateEventException("Resident with matric number " + eventName + " already exists.");
         }
         events.add(new Event(eventName, cca, eventDate));
         logger.log(Level.INFO, "Successfully added resident: {0}", eventName);

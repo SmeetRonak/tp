@@ -1,6 +1,7 @@
 package ccamanager.parser;
 
 import ccamanager.command.AddCcaCommand;
+import ccamanager.command.AddEventCommand;
 import ccamanager.command.AddResidentCommand;
 import ccamanager.command.AddResidentToCcaCommand;
 import ccamanager.command.ExitCommand;
@@ -59,8 +60,13 @@ public class Parser {
             if (parts.length < 2 || parts[1].isBlank()) {
                 return new UnknownCommand("Usage: delete-cca <cca name>");
             }
-
             return new DeleteCcaCommand(parts[1]);
+
+        case "add-event":
+            if (parts.length < 4) {
+                return new UnknownCommand("Usage add-event <event name> <cca name> <data time>");
+            }
+            return new AddEventCommand(parts[1], parts[2], parts[3]);
 
         case "bye":
             return new ExitCommand();
