@@ -26,3 +26,4 @@ public class ViewResidentCommand extends Command {
         ui.showResidentList(residentList);
     }
 }
+

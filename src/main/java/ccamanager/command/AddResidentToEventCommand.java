@@ -41,7 +41,8 @@ public class AddResidentToEventCommand extends Command {
             Resident resident = residentManager.getResidentList().stream()
                     .filter(r -> r.getMatricNumber().equalsIgnoreCase(matricNumber))
                     .findFirst()
-                    .orElseThrow(() -> new ResidentNotFoundException("Resident with matric number " + matricNumber + " not found."));
+                    .orElseThrow(() -> new ResidentNotFoundException("Resident with matric number " +
+                            matricNumber + " not found."));
 
             Cca cca = ccaManager.getCCAList().stream()
                     .filter(c -> c.getName().equalsIgnoreCase(ccaName))
@@ -50,10 +51,12 @@ public class AddResidentToEventCommand extends Command {
 
             eventManager.addResidentToEvent(eventName, cca, resident);
 
-            ui.showMessage("Successfully added " + resident.getName() + " to event " + eventName + " under CCA " + ccaName + ".");
+            ui.showMessage("Successfully added " + resident.getName() + " to event " +
+                    eventName + " under CCA " + ccaName + ".");
 
         } catch (ResidentNotFoundException | CcaNotFoundException | EventNotFoundException e) {
             ui.showError(e.getMessage());
         }
     }
 }
+

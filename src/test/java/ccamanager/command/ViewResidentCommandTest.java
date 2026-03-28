@@ -3,7 +3,6 @@ package ccamanager.command;
 import ccamanager.manager.CcaManager;
 import ccamanager.manager.EventManager;
 import ccamanager.manager.ResidentManager;
-import ccamanager.model.Event;
 import ccamanager.model.Resident;
 import ccamanager.ui.Ui;
 import org.junit.jupiter.api.BeforeEach;

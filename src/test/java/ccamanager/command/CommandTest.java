@@ -15,7 +15,8 @@ public class CommandTest {
     void isExit_default_returnsFalse() {
         Command command = new Command() {
             @Override
-            public void execute(CcaManager ccaManager, ResidentManager residentManager, EventManager eventManager, Ui ui) {
+            public void execute(CcaManager ccaManager, ResidentManager residentManager,
+                                EventManager eventManager, Ui ui) {
             }
         };
 
@@ -23,5 +24,6 @@ public class CommandTest {
     }
 
 }
+
 
 

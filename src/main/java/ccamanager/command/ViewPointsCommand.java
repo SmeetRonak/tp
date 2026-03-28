@@ -16,3 +16,4 @@ public class ViewPointsCommand extends Command{
         ui.showCcaPoints(residentList);
     }
 }
+

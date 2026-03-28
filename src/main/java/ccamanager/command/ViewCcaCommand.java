@@ -22,3 +22,4 @@ public class ViewCcaCommand extends Command {
         ui.showCcaList(ccaList);
     }
 }
+
