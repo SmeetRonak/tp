@@ -10,7 +10,8 @@ import java.util.Scanner;
 
 public class Ui {
 
-    private static final String DIVIDER = "_________________________________________________________________________________";
+    private static final String DIVIDER = "_____________________________________________________________________" +
+            "____________";
     private final Scanner scanner;
     private String lastMessage;
 
@@ -123,7 +124,8 @@ public class Ui {
         System.out.println(DIVIDER);
     }
 
-    public void showCcaStats(HashMap<Cca, Double> avgPoints, Cca mostPopularCca, HashMap<Cca, Resident> mostActiveResidents) {
+    public void showCcaStats(HashMap<Cca, Double> avgPoints, Cca mostPopularCca, HashMap<Cca,
+            Resident> mostActiveResidents) {
         System.out.println(DIVIDER);
         System.out.println("Average points and most active resident per CCA:");
         int index = 1;
@@ -133,7 +135,8 @@ public class Ui {
             index++;
         }
         System.out.println();
-        System.out.println("Most popular CCA: " + mostPopularCca + ", average points: " + avgPoints.get(mostPopularCca));
+        System.out.println("Most popular CCA: " + mostPopularCca + ", average points: " +
+                avgPoints.get(mostPopularCca));
         System.out.println(DIVIDER);
     }
 
