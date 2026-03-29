@@ -144,8 +144,22 @@ public class Ui {
         System.out.println(DIVIDER);
     }
 
-    public void showResidentStats() {
-        // TODO
+    public void showResidentStats(HashMap<Resident, Integer> totalPoints, ArrayList<Resident> mostActiveResident) {
+        System.out.println(DIVIDER);
+        System.out.println("Total points for each resident:");
+        int index = 1;
+        for (Resident resident : totalPoints.keySet()) {
+            System.out.println(index + ". " + resident + ", total points: " + totalPoints.get(resident));
+            index++;
+        }
+        System.out.println();
+        System.out.println("Most active residents across all CCAs:");
+        index = 1;
+        for (Resident resident : mostActiveResident) {
+            System.out.println(index + ". " + resident + ", total points: " + totalPoints.get(resident));
+            index++;
+        }
+        System.out.println(DIVIDER);
     }
 
     public String getLastMessage() {

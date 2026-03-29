@@ -20,6 +20,7 @@ public class ResidentStatsCommand extends Command {
         }
         HashMap<Resident, Integer> totalPoints = totalPoints(residents);
         ArrayList<Resident> mostActiveResident = mostActiveResidents(totalPoints);
+        ui.showResidentStats(totalPoints, mostActiveResident);
     }
 
     private static HashMap<Resident, Integer> totalPoints(ArrayList<Resident> residents) {
