@@ -223,58 +223,6 @@ public void execute(CcaManager ccaManager, ResidentManager residentManager, Even
       ui.showMessage("There are no CCAs currently. Please add CCAs using add-cca command");
    }
 }
-
-private static HashMap<Cca, Double> avgPoints(ArrayList<Cca> ccas) throws IllegalArgumentException {
-   if (ccas.isEmpty()) {
-      throw new IllegalArgumentException();
-   }
-   HashMap<Cca, Double> avgPoints = new HashMap<>();
-   for (Cca cca : ccas) {
-      ArrayList<Resident> registeredResidents = cca.getRegisteredResidents();
-      double totalPoints = 0;
-      for (Resident resident : registeredResidents) {
-         totalPoints += resident.getCcaMap().get(cca);
-      }
-      double avg = totalPoints / registeredResidents.size();
-      avgPoints.put(cca, avg);
-   }
-   return avgPoints;
-}
-
-private static Cca mostPopularCca(HashMap<Cca, Double> avgPoints) throws IllegalArgumentException {
-   if  (avgPoints.isEmpty()) {
-      throw  new IllegalArgumentException();
-   }
-   Cca mostPopularCca = null;
-   for (Cca cca : avgPoints.keySet()) {
-      if (mostPopularCca == null) {
-         mostPopularCca = cca;
-      } else if (avgPoints.get(cca) > avgPoints.get(mostPopularCca)) {
-         mostPopularCca = cca;
-      }
-   }
-   return mostPopularCca;
-}
-
-private static HashMap<Cca, Resident> mostActiveResidents(ArrayList<Cca> ccas) throws IllegalArgumentException {
-   if (ccas.isEmpty()) {
-      throw new IllegalArgumentException();
-   }
-   HashMap<Cca, Resident> mostActiveResidents = new HashMap<>();
-   for (Cca cca : ccas) {
-      ArrayList<Resident> registeredResidents = cca.getRegisteredResidents();
-      Resident mostActiveResident = null;
-      for (Resident resident : registeredResidents) {
-         if (mostActiveResident == null) {
-            mostActiveResident = resident;
-         } else if (resident.getCcaMap().get(cca) > mostActiveResident.getCcaMap().get(cca)) {
-            mostActiveResident = resident;
-         }
-      }
-      mostActiveResidents.put(cca, mostActiveResident);
-   }
-   return mostActiveResidents;
-}
 ```
 ### Sequence Diagram
 ![Add CCA Statistics Sequence Diagram](images/cca-stats.png)
@@ -309,36 +257,6 @@ public void execute(CcaManager ccaManager, ResidentManager residentManager, Even
    ArrayList<Resident> mostActiveResident = mostActiveResidents(totalPoints);
    ui.showResidentStats(totalPoints, mostActiveResident);
 }
-
-private static HashMap<Resident, Integer> totalPoints(ArrayList<Resident> residents) {
-   HashMap<Resident, Integer> totalPoints = new HashMap<>();
-   for (Resident resident : residents) {
-      ArrayList<Integer> points = resident.getPoints();
-      if (points.isEmpty()) {
-         totalPoints.put(resident, 0);
-      } else {
-         int sum = points.stream().mapToInt(Integer::intValue).sum();
-         totalPoints.put(resident, sum);
-      }
-   }
-   return totalPoints;
-}
-
-private static ArrayList<Resident> mostActiveResidents (HashMap<Resident, Integer> totalPoints) {
-   ArrayList<Resident> mostActiveResidents = new ArrayList<>();
-   int max = 0;
-   for (Resident resident : totalPoints.keySet()) {
-      if (totalPoints.get(resident) > max) {
-         max = totalPoints.get(resident);
-      }
-   }
-   for (Resident resident : totalPoints.keySet()) {
-      if (totalPoints.get(resident) == max) {
-         mostActiveResidents.add(resident);
-      }
-   }
-   return mostActiveResidents;
-}
 ```
 ### Sequence Diagram
 ![Add Resident Statistics Sequence Diagram](images/resident-stats.png)
@@ -361,21 +279,23 @@ The `help` command is implemented using the Command pattern.
 ```java
 @Override
  public void execute(CcaManager ccaManager, ResidentManager residentManager, EventManager eventManager, Ui ui) {
-     String help = "Here is a list of all commands:\n" +
-             "> add-cca <cca name> <level (HIGH, MEDIUM, LOW or UNKNOWN)>\n" +
-             "> view-cca\n" +
-             "> delete-cca <cca name>\n" +
-             "> add-event <event name> <cca name> <data time>\n" +
-             "> add-resident <name> <matric number>\n" +
-             "> view-resident\n" +
-             "> add-resident-to-cca <matric number> <cca name> <points>\n" +
-             "> add-resident-to-event <matric number> <event name> <cca name>\n" +
-             "> view-points\n" +
-             "> cca-stats\n" +
-             "> resident-stats\n" +
-             "> help\n" +
-             "> bye";
-     ui.showMessage(help);
+    String help = "Here is a list of all commands:\n" +
+            "> add-cca <cca name> <level (HIGH, MEDIUM, LOW or UNKNOWN)>\n" +
+            "> view-cca\n" +
+            "> delete-cca <cca name>\n" +
+            "> add-event <event name> <cca name> <data time>\n" +
+            "> add-resident <name> <matric number>\n" +
+            "> view-resident\n" +
+            "> add-resident-to-cca <matric number> <cca name> <points>\n" +
+            "> add-resident-to-event <matric number> <event name> <cca name>\n" +
+            "> view-points\n" +
+            "> cca-stats\n" +
+            "> resident-stats\n" +
+            "> help\n" +
+            "> bye";
+    ui.showMessage(help);
+}
+ ```
 
 ## Product scope
 ### Target user profile
