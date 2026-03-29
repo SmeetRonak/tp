@@ -9,6 +9,7 @@ import ccamanager.command.CcaStatsCommand;
 import ccamanager.command.Command;
 import ccamanager.command.DeleteCcaCommand;
 import ccamanager.command.ExitCommand;
+import ccamanager.command.ResidentStatsCommand;
 import ccamanager.command.UnknownCommand;
 import ccamanager.command.ViewCcaCommand;
 import ccamanager.command.ViewPointsCommand;
@@ -125,6 +126,8 @@ public class Parser {
             return new ViewPointsCommand();
         case "cca-stats":
             return new CcaStatsCommand();
+        case "resident-stats":
+            return new ResidentStatsCommand();
         default:
             return new UnknownCommand();
         }

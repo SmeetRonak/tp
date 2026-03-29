@@ -144,6 +144,10 @@ public class Ui {
         System.out.println(DIVIDER);
     }
 
+    public void showResidentStats() {
+        // TODO
+    }
+
     public String getLastMessage() {
         return lastMessage;
     }
