@@ -23,8 +23,31 @@ Example:
 `> view-resident`
 
 ```
+_________________________________________________________________________________
+Here is the complete list of all the residents :
 1. John | 1234
 2. James | 4321
+_________________________________________________________________________________
+```
+
+### Viewing per-CCA statistics: `cca-stats`
+Displays the average points and the most active resident for each CCA, as well as the most popular CCAs based on average points.
+
+Format: `cca-stats`
+
+Example:
+
+`> cca-stats`
+
+```
+_________________________________________________________________________________
+Average points and most active resident per CCA:
+1. Football(HIGH): 1 residents, average points: 4.0, most active: John | 1234
+2. Basketball(HIGH): 2 residents, average points: 6.0, most active: James | 4321
+
+Most popular CCAs:
+1. Basketball(HIGH): 2 residents, average points: 6.0
+_________________________________________________________________________________
 ```
 
 ## FAQ
