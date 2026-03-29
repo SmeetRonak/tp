@@ -11,23 +11,21 @@
 1. Ensure that you have Java 17 or above installed.
 1. Down the latest version of `Duke` from [here](http://link.to/duke).
 
-## Features 
+## Features
 
-{Give detailed description of each feature}
+### Viewing residents: `view-resident`
+Displays all the residents in the system.
 
-### Adding a todo: `todo`
-Adds a new item to the list of todo items.
+Format: `view-resident` 
 
-Format: `todo n/TODO_NAME d/DEADLINE`
+Example: 
 
-* The `DEADLINE` can be in a natural language format.
-* The `TODO_NAME` cannot contain punctuation.  
+`> view-resident`
 
-Example of usage: 
-
-`todo n/Write the rest of the User Guide d/next week`
-
-`todo n/Refactor the User Guide to remove passive voice d/13/04/2020`
+```
+1. John | 1234
+2. James | 4321
+```
 
 ## FAQ
 
