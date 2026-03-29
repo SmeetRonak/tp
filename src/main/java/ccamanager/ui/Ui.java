@@ -105,6 +105,7 @@ public class Ui {
         }
         System.out.println(DIVIDER);
     }
+
     public void showCcaPoints(ArrayList<Resident> residentList){
         System.out.println(DIVIDER);
         if (residentList.isEmpty()) {
@@ -124,6 +125,12 @@ public class Ui {
         System.out.println(DIVIDER);
     }
 
+    /**
+     * Displays per-CCA statistics
+     * @param avgPoints a hashmap containing CCAs and the average points of the registered residents
+     * @param mostPopularCcas a list of the most popular CCAs based on their average points
+     * @param mostActiveResidents a hashmap containing CCAs and their most active members
+     */
     public void showCcaStats(HashMap<Cca, Double> avgPoints, ArrayList<Cca> mostPopularCcas, HashMap<Cca,
             Resident> mostActiveResidents) {
         System.out.println(DIVIDER);
@@ -139,6 +146,29 @@ public class Ui {
         index = 1;
         for (Cca cca : mostPopularCcas) {
             System.out.println(index + ". " + cca + ", average points: " + avgPoints.get(cca));
+            index++;
+        }
+        System.out.println(DIVIDER);
+    }
+
+    /**
+     * Displays per-resident statistics
+     * @param totalPoints a hashmap containing residents and their total points across all CCAs
+     * @param mostActiveResident a list of the most active residents based on their total points
+     */
+    public void showResidentStats(HashMap<Resident, Integer> totalPoints, ArrayList<Resident> mostActiveResident) {
+        System.out.println(DIVIDER);
+        System.out.println("Total points for each resident:");
+        int index = 1;
+        for (Resident resident : totalPoints.keySet()) {
+            System.out.println(index + ". " + resident + ", total points: " + totalPoints.get(resident));
+            index++;
+        }
+        System.out.println();
+        System.out.println("Most active residents across all CCAs:");
+        index = 1;
+        for (Resident resident : mostActiveResident) {
+            System.out.println(index + ". " + resident + ", total points: " + totalPoints.get(resident));
             index++;
         }
         System.out.println(DIVIDER);
