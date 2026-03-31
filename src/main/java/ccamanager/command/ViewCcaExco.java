@@ -32,7 +32,6 @@ public class ViewCcaExco extends Command {
                     .findFirst()
                     .orElseThrow(() -> new CcaNotFoundException(ccaName + " not found."));
             ui.showExcoList(cca.getExcos());
-
         } catch (CcaNotFoundException e) {
             ui.showError(e.getMessage());
         }
