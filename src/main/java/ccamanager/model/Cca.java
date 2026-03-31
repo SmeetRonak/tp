@@ -58,7 +58,9 @@ public class Cca {
         return level;
     }
 
-    public ArrayList<Resident> getResidents(){return this.registeredResidents;}
+    public ArrayList<Resident> getResidents(){
+        return this.registeredResidents;
+    }
 
     public ArrayList<Resident> getExcos(){return this.excoMembers;}
     /**
