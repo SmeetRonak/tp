@@ -28,7 +28,7 @@ public class ResidentStatsCommand extends Command {
      * @param residents a list of residents
      * @return a hashmap containing the residents in <code>residents</code> and their corresponding total points
      */
-    private static HashMap<Resident, Integer> totalPoints(ArrayList<Resident> residents) {
+    public static HashMap<Resident, Integer> totalPoints(ArrayList<Resident> residents) {
         HashMap<Resident, Integer> totalPoints = new HashMap<>();
         for (Resident resident : residents) {
             ArrayList<Integer> points = resident.getPoints();
@@ -47,7 +47,7 @@ public class ResidentStatsCommand extends Command {
      * @param totalPoints a hashmap containing the residents and their corresponding total points
      * @return a list of the most active residents
      */
-    private static ArrayList<Resident> mostActiveResidents (HashMap<Resident, Integer> totalPoints) {
+    public static ArrayList<Resident> mostActiveResidents (HashMap<Resident, Integer> totalPoints) {
         ArrayList<Resident> mostActiveResidents = new ArrayList<>();
         int max = 0;
         for (Resident resident : totalPoints.keySet()) {
