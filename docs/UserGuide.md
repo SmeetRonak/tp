@@ -173,7 +173,7 @@ Format: `add-event <event name>; <cca name>; <date>`
 Example :
 
 ```
-> add-event Practice-Week1 Dance 29/3/26
+> add-event Practice-Week1; Dance; 29/3/26
 _________________________________________________________________________________
  Event added: Practice-Week1 for the CCA Dance, during 29/3/26
 _________________________________________________________________________________
