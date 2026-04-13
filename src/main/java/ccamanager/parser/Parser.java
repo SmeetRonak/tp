@@ -1,7 +1,27 @@
 package ccamanager.parser;
 
-import ccamanager.command.*;
+import ccamanager.command.AddCcaCommand;
+import ccamanager.command.AddEventCommand;
+import ccamanager.command.AddExcoToCcaCommand;
+import ccamanager.command.AddResidentCommand;
+import ccamanager.command.AddResidentToCcaCommand;
+import ccamanager.command.AddResidentToEventCommand;
+import ccamanager.command.CcaStatsCommand;
+import ccamanager.command.Command;
+import ccamanager.command.DeleteCcaCommand;
+import ccamanager.command.DeleteResidentCommand;
+import ccamanager.command.ExitCommand;
+import ccamanager.command.HelpCommand;
+import ccamanager.command.ResidentStatsCommand;
+import ccamanager.command.UnknownCommand;
+import ccamanager.command.ViewCcaCommand;
+import ccamanager.command.ViewCcaEvents;
+import ccamanager.command.ViewCcaExco;
+import ccamanager.command.ViewMyEvents;
+import ccamanager.command.ViewPointsCommand;
+import ccamanager.command.ViewResidentCommand;
 import ccamanager.enumerations.CcaLevel;
+import ccamanager.command.SortPointsCommand;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,7 +67,7 @@ public class Parser {
             case "resident-stats":
                 return new ResidentStatsCommand();
             case "sort-points":
-                return new SortPoints();
+                return new SortPointsCommand();
             default:
                 return new UnknownCommand();
             }

@@ -11,7 +11,7 @@ import ccamanager.ui.Ui;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class SortPoints extends Command {
+public class SortPointsCommand extends Command {
 
     @Override
     public void execute(CcaManager ccaManager, ResidentManager residentManager, EventManager eventManager, Ui ui) {
