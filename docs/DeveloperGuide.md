@@ -899,11 +899,29 @@ view-exco Basketball
 
 ---
 
-#### 9. View Points and Statistics
+#### 9. View Points
 
 ---
 
-#### 10. Delete Operations
+#### 10. View Statistics
+
+```
+add-cca Basketball; HIGH
+add-cca Football; MEDIUM
+add-cca Tennis; LOW
+add-resident John; 2341
+add-resident James; 4321
+add-resident Jane; 5678
+add-resident-to-cca 1234; Basketball; 9
+add-resident-to-cca 4321; Football; 9
+add-resident-to-cca 5678; Tennis; 8
+cca-stats
+resident-stats
+```
+
+---
+
+#### 11. Delete Operations
 
 ```
 delete-resident A1234567B
