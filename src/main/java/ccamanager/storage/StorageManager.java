@@ -48,7 +48,7 @@ public class StorageManager {
     private static final String ATTENDANCE_FILE = DATA_DIR + "/event_attendance.txt";
 
     private static final String SEP       = "|";
-    private static final String SEP_REGEX = "\\|";
+    private static final String SEP_REGEX = "(?<!\\\\)\\|";
 
     // =========================================================================
     // SAVE — full snapshot on every call, overwrites existing files
