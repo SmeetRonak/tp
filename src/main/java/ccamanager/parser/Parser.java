@@ -1,27 +1,7 @@
 package ccamanager.parser;
 
-import ccamanager.command.AddCcaCommand;
-import ccamanager.command.AddEventCommand;
-import ccamanager.command.AddExcoToCcaCommand;
-import ccamanager.command.AddResidentCommand;
-import ccamanager.command.AddResidentToCcaCommand;
-import ccamanager.command.AddResidentToEventCommand;
-import ccamanager.command.CcaStatsCommand;
-import ccamanager.command.Command;
-import ccamanager.command.DeleteCcaCommand;
-import ccamanager.command.DeleteResidentCommand;
-import ccamanager.command.ExitCommand;
-import ccamanager.command.HelpCommand;
-import ccamanager.command.ResidentStatsCommand;
-import ccamanager.command.UnknownCommand;
-import ccamanager.command.ViewCcaCommand;
-import ccamanager.command.ViewCcaEvents;
-import ccamanager.command.ViewCcaExco;
-import ccamanager.command.ViewMyEvents;
-import ccamanager.command.ViewPointsCommand;
-import ccamanager.command.ViewResidentCommand;
+import ccamanager.command.*;
 import ccamanager.enumerations.CcaLevel;
-import ccamanager.command.SortPointsCommand;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -171,17 +151,23 @@ public class Parser {
             }
             return new AddExcoToCcaCommand(args[0], args[1]);
 
-        case "view-cca-event":
+        case "view-cca-events":
             if (args[0].isBlank()) {
                 return new UnknownCommand("CCA name cannot be empty.");
             }
             return new ViewCcaEvents(args[0]);
 
-        case "view-my-event":
+        case "view-my-events":
             if (args[0].isBlank()) {
                 return new UnknownCommand("Resident name cannot be empty.");
             }
             return new ViewMyEvents(args[0]);
+
+        case "view_residents-in-cca":
+            if(args[0].isBlank()) {
+                return new UnknownCommand("Cca name cannot be empty.");
+            }
+            return new ViewResidentInCcaCommand(args[0]);
 
         default:
             // This captures cases like "help" (if not caught above) or completely unknown words
