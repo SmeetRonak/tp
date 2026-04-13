@@ -154,7 +154,7 @@ Format: `add-resident-to-cca <matric number> <cca name> <points>`
 
 Example:
 ```
-> add-resident-to-cca A1234567B Basketball 10
+> add-resident-to-cca A1234567B; Basketball; 10
 _________________________________________________________________________________
  Resident John | A1234567B was added to CCA: Basketball with 10 points.
 _________________________________________________________________________________
@@ -245,7 +245,7 @@ Format: `add-resident <resident name>; <matric number>`
 Example:
 
 ```
-> add-resident Ramesh A1234567B
+> add-resident Ramesh; A1234567B
 _________________________________________________________________________________
 Resident added: Ramesh A1234567B
 _________________________________________________________________________________
